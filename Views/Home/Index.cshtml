@@ -1,0 +1,11 @@
+﻿@Html.EJS().Grid("CustomerGrid").Width("auto").DataSource(dataManager => { dataManager.Url("/Home/UrlDatasource").InsertUrl("/Admin/InsertCustomer").UpdateUrl("/Admin/UpdateCustomer").Adaptor("UrlAdaptor"); }).Columns(col =>
+{
+col.Field("OrderID").Width("10").Visible(false).IsPrimaryKey(true).TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+col.Field("EmployeeID").ClipMode(Syncfusion.EJ2.Grids.ClipMode.EllipsisWithTooltip).HeaderText("Employee ID").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+col.Field("CustomerID").ClipMode(Syncfusion.EJ2.Grids.ClipMode.EllipsisWithTooltip).HeaderText("Customer").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+col.Field("ShipCity").ClipMode(Syncfusion.EJ2.Grids.ClipMode.EllipsisWithTooltip).HeaderText("Ship City").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).EditType("dropdownedit").Add();
+col.Field("UpdateByName").ClipMode(Syncfusion.EJ2.Grids.ClipMode.EllipsisWithTooltip).HeaderText("UpdateBy").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+col.Field("UpdateByDate").ClipMode(Syncfusion.EJ2.Grids.ClipMode.EllipsisWithTooltip).HeaderText("UpdateByDate").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+
+}).AllowSorting().AllowFiltering().AllowPaging().PageSettings(page => page.PageCount(5).PageSizes(true)).EditSettings(edit => { edit.AllowAdding(true).AllowEditing(true).Mode(Syncfusion.EJ2.Grids.EditMode.Dialog); }).Toolbar(new List<string>
+() { "Add", "Edit", "Search" }).FilterSettings(filter => { filter.Type(Syncfusion.EJ2.Grids.FilterType.Menu); }).AllowSelection().SelectionSettings(select => select.Type(Syncfusion.EJ2.Grids.SelectionType.Single)).Render()
